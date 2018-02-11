@@ -15,6 +15,13 @@ public class Validator extends AppCompatActivity {
     }
 
     protected static boolean validatePassword(String pass) {
+
+        if (pass.length() < 8) {
+            return false;
+        }
+        if (pass.toLowerCase().matches("password")) {
+           return false;
+        }
         return true;
 
     }
