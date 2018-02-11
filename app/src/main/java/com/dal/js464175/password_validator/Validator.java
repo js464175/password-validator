@@ -22,6 +22,15 @@ public class Validator extends AppCompatActivity {
         if (pass.toLowerCase().matches("password")) {
            return false;
         }
+        if (pass.matches("[A-Z]*")) {
+            return false;
+        }
+        if (pass.matches("[a-z]*")) {
+            return false;
+        }
+        if (pass.matches("^.*\\$.*$")) {
+            return false;
+        }
         return true;
 
     }
