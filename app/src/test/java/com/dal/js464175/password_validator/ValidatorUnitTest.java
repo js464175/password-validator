@@ -15,14 +15,26 @@ public class ValidatorUnitTest {
     public void password_isNotPassword() throws Exception {
         assertEquals(Validator.validatePassword("password"), false);
     }
-
     @Test
     public void password_isLongEnough() throws Exception {
         assertEquals(Validator.validatePassword("1234567"), false);
     }
-
     @Test
     public void password_GenericTest() throws Exception {
         assertEquals(Validator.validatePassword("TestingPass"), true);
+    }
+
+    // stage 2
+    @Test
+    public void password_notAllLowerCase() throws Exception {
+        assertEquals(Validator.validatePassword("lowercasetest"), false);
+    }
+    @Test
+    public void password_hasNoDolla() throws Exception {
+        assertEquals(Validator.validatePassword("Test$$$Pass"), false);
+    }
+    @Test
+    public void password_notAllUpperCase() throws Exception {
+        assertEquals(Validator.validatePassword("UPPERCASETEST"), false);
     }
 }
